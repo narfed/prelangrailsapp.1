@@ -1,0 +1,35 @@
+<h1>Listing program_segments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Cost</th>
+      <th>Capacity</th>
+      <th>Enrolled</th>
+      <th>Program model</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @program_segments.each do |program_segment| %>
+      <tr>
+        <td><%= program_segment.name %></td>
+        <td><%= program_segment.date %></td>
+        <td><%= program_segment.cost %></td>
+        <td><%= program_segment.capacity %></td>
+        <td><%= program_segment.enrolled %></td>
+        <td><%= program_segment.program_model %></td>
+        <td><%= link_to 'Show', program_segment %></td>
+        <td><%= link_to 'Edit', edit_program_segment_path(program_segment) %></td>
+        <td><%= link_to 'Destroy', program_segment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Program segment', new_program_segment_path %>

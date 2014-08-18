@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :program_segments
+
   resources :program_models
 
   resources :attendees

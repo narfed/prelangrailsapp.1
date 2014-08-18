@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @program_segment.name %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @program_segment.date %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @program_segment.cost %>
+</p>
+
+<p>
+  <strong>Capacity:</strong>
+  <%= @program_segment.capacity %>
+</p>
+
+<p>
+  <strong>Enrolled:</strong>
+  <%= @program_segment.enrolled %>
+</p>
+
+<p>
+  <strong>Program model:</strong>
+  <%= @program_segment.program_model %>
+</p>
+
+<%= link_to 'Edit', edit_program_segment_path(@program_segment) %> |
+<%= link_to 'Back', program_segments_path %>
