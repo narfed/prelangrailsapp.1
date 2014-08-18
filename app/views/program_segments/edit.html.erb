@@ -1,6 +1,5 @@
-<h1>Editing program_segment</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @program_segment %> |
-<%= link_to 'Back', program_segments_path %>
+<%- model_class = ProgramSegment -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => ProgramSegment %></h1>
+</div>
+<%= render :partial => 'form' %>

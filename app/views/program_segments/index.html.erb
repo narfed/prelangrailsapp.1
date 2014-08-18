@@ -1,35 +1,44 @@
-<h1>Listing program_segments</h1>
-
-<table>
+<%- model_class = ProgramSegment -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => ProgramSegment %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Date</th>
-      <th>Cost</th>
-      <th>Capacity</th>
-      <th>Enrolled</th>
-      <th>Program model</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:date) %></th>
+      <th><%= model_class.human_attribute_name(:cost) %></th>
+      <th><%= model_class.human_attribute_name(:capacity) %></th>
+      <th><%= model_class.human_attribute_name(:enrolled) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @program_segments.each do |program_segment| %>
       <tr>
+        <td><%= program_segment.id %></td>
         <td><%= program_segment.name %></td>
         <td><%= program_segment.date %></td>
         <td><%= program_segment.cost %></td>
         <td><%= program_segment.capacity %></td>
         <td><%= program_segment.enrolled %></td>
-        <td><%= program_segment.program_model %></td>
-        <td><%= link_to 'Show', program_segment %></td>
-        <td><%= link_to 'Edit', edit_program_segment_path(program_segment) %></td>
-        <td><%= link_to 'Destroy', program_segment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l program_segment.created_at, format: :long %></td>
+        <td>
+          <%= link_to program_segment_path(program_segment), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to program_segment_path(program_segment), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Program segment', new_program_segment_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_program_segment_path,
+            :class => 'btn btn-primary' %>
