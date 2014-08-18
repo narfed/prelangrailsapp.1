@@ -1,4 +1,5 @@
 ActiveAdmin.register ProgramSegment do
+  permit_params :name, :date, :cost, :capacity, :enrolled
 
 
   # See permitted parameters documentation:
