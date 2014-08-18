@@ -1,44 +1,34 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Attendee -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Attendee %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @attendee.name %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
+      <dd><pre class="prettyprint"><%= @attendee.name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:allergies) %></dt>
+      <dd><pre class="prettyprint"><%= @attendee.allergies %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:special_needs) %></dt>
+      <dd><pre class="prettyprint"><%= @attendee.special_needs %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:age) %></dt>
+      <dd><pre class="prettyprint"><%= @attendee.age %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:emmergencycontactphone) %></dt>
+      <dd><pre class="prettyprint"><%= @attendee.emmergencycontactphone %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:media_release) %></dt>
+      <dd><pre class="prettyprint"><%= @attendee.media_release %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Allergies:</strong>
-  <%= @attendee.allergies %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              attendees_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_attendee_path(@attendee), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              attendee_path(@attendee),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Special needs:</strong>
-  <%= @attendee.special_needs %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @attendee.age %>
-</p>
-
-<p>
-  <strong>Program segment:</strong>
-  <%= @attendee.program_segment %>
-</p>
-
-<p>
-  <strong>Emmergencycontactphone:</strong>
-  <%= @attendee.emmergencycontactphone %>
-</p>
-
-<p>
-  <strong>Media release:</strong>
-  <%= @attendee.media_release %>
-</p>
-
-<p>
-  <strong>Registrant:</strong>
-  <%= @attendee.registrant %>
-</p>
-
-<%= link_to 'Edit', edit_attendee_path(@attendee) %> |
-<%= link_to 'Back', attendees_path %>

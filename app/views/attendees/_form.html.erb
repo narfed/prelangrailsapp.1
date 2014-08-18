@@ -1,18 +1,46 @@
-<%= simple_form_for(@attendee) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :allergies %>
-    <%= f.input :special_needs %>
-    <%= f.input :age %>
-    <%= f.association :program_segment %>
-    <%= f.input :emmergencycontactphone %>
-    <%= f.input :media_release %>
-    <%= f.association :registrant %>
+<%= form_for @attendee, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :name, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :allergies, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :allergies, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :special_needs, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :special_needs, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :age, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :age, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :emmergencycontactphone, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :emmergencycontactphone, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :media_release, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.check_box :media_release, :class => 'text-field form-control' %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  attendees_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
