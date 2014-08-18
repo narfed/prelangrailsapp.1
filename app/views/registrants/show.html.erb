@@ -1,4 +1,22 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Registrant -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Registrant %></h1>
+</div>
 
-<%= link_to 'Edit', edit_registrant_path(@registrant) %> |
-<%= link_to 'Back', registrants_path %>
+<div class="fieldset">
+  <dl>
+  </dl>
+</div>
+
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              registrants_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_registrant_path(@registrant), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              registrant_path(@registrant),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
+
