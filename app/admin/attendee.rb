@@ -1,4 +1,5 @@
 ActiveAdmin.register Attendee do
+  permit_params :name, :allergies, :special_needs, :age, :emmergencycontactphone, :media_release
 
 
   # See permitted parameters documentation:
