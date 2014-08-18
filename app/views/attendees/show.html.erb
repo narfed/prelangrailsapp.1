@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @attendee.name %>
+</p>
+
+<p>
+  <strong>Allergies:</strong>
+  <%= @attendee.allergies %>
+</p>
+
+<p>
+  <strong>Special needs:</strong>
+  <%= @attendee.special_needs %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @attendee.age %>
+</p>
+
+<p>
+  <strong>Program segment:</strong>
+  <%= @attendee.program_segment %>
+</p>
+
+<p>
+  <strong>Emmergencycontactphone:</strong>
+  <%= @attendee.emmergencycontactphone %>
+</p>
+
+<p>
+  <strong>Media release:</strong>
+  <%= @attendee.media_release %>
+</p>
+
+<p>
+  <strong>Registrant:</strong>
+  <%= @attendee.registrant %>
+</p>
+
+<%= link_to 'Edit', edit_attendee_path(@attendee) %> |
+<%= link_to 'Back', attendees_path %>
